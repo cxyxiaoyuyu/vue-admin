@@ -7,20 +7,22 @@
         size="mini"
         @click="toggleMenu"
       ></el-button>
-      
+
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item v-if="current" :to="{ path: current.path}">{{current.label}}</el-breadcrumb-item>
+        <el-breadcrumb-item v-if="current" :to="{ path: current.path }">{{
+          current.label
+        }}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="right-content">
-      <el-dropdown trigger="click" size="mini">
+      <el-dropdown trigger="click" size="mini" @command="handleCommand">
         <span class="el-dropdown-link">
           <img src="../assets/images/user.png" class="user" />
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item command="logout">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -28,7 +30,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -39,12 +41,20 @@ export default {
     toggleMenu() {
       this.$store.commit("toggleMenu");
     },
+    handleCommand(command) {
+      this[command]()
+    },
+    logout(){
+      this.$router.push({name: 'login'})
+      sessionStorage.clear()
+      this.$message('已退出登录')
+    }
   },
   computed: {
     ...mapState({
-      current: (state) => state.tab.currentMenu
-    })
-  }
+      current: (state) => state.tab.currentMenu,
+    }),
+  },
 };
 </script>
 

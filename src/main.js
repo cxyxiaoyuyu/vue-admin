@@ -3,6 +3,7 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import '@/assets/css/global.css'
 
 // 开发环境下 引入mockjs
 if(process.env.NODE_ENV === 'development'){

@@ -13,6 +13,10 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: '/login'
+  },
+  {
+    path: '/home',
     component: Main,
     children: [
       {
@@ -42,6 +46,18 @@ const router = new VueRouter({
   mode: 'hash',
   base: process.env.BASE_URL,
   routes
+})
+
+// 路由守卫
+router.beforeEach((to,form,next)=>{
+  if(to.path === '/login'){
+    next()
+  }
+  if(sessionStorage.getItem('token')){
+    next()
+  }else{
+    next('/login')
+  }
 })
 
 export default router

@@ -38,6 +38,7 @@
 <style>
 .el-menu-vertical-demo {
   height: 100vh;
+  border-right: 1px solid rgb(84, 92, 100) !important;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
