@@ -4,6 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import '@/assets/css/global.css'
+import '@/assets/js/svg.js'
 
 // 开发环境下 引入mockjs
 if(process.env.NODE_ENV === 'development'){

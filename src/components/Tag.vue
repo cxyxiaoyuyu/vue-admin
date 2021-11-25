@@ -4,11 +4,10 @@
       v-for="(tag,index) in tabsList"
       :key="tag.name"
       :closable="tag.name !== 'home'"
-      :effect="$route.name === tag.name ? 'dark' : 'plain'"
+      :effect="$route.name === tag.path ? 'dark' : 'plain'"
       @click="changeMenu(tag)"
       @close="closeMenu(tag,index)"
-      >{{ tag.label }}</el-tag
-    >
+      >{{ tag.authName }}</el-tag>
   </div>
 </template>
 

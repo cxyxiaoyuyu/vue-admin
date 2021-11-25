@@ -15,7 +15,8 @@ class HttpRequest{
   getInsideConfig(){
     const config = {
       baseURL: this.baseUrl,
-      header: {
+      headers: {
+        Authorization: window.sessionStorage.getItem('token')
       }
     }
     return config 

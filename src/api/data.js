@@ -8,14 +8,12 @@ export const login = (data) => {
   })
 }
 
-export const getMenu = () => {
+export const getMenuList = () => {
   return axios.request({
-    url: 'menu',
+    url: 'menus',
     method: 'get'
   })
 }
-
-
 
 export const getHomeTableData = () => {
   return axios.request({

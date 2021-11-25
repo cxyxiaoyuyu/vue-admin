@@ -4,10 +4,9 @@ export default {
     currentMenu: null,
     tabsList: [
       {
-        path: '/',
-        name: 'home',
-        label: '首页',
-        icon: 'home'
+        id: '111',
+        path: 'home',
+        authName: '首页',
       }
     ]
   },
@@ -24,7 +23,7 @@ export default {
         state.currentMenu = menu
 
         // 新增tabList
-        if (state.tabsList.findIndex(item => item.name === menu.name) === -1) {
+        if (state.tabsList.findIndex(item => item.id === menu.id) === -1) {
           state.tabsList.push(menu)
         }
 

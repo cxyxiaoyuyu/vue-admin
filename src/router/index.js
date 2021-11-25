@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
 import Login from '../views/Login.vue'
+import Home from '../views/Main.vue'
 
 // 解决路由重复
 const originPush = VueRouter.prototype.push
@@ -16,30 +17,31 @@ const routes = [
     redirect: '/login'
   },
   {
+    path: '/login',
+    name: 'login',
+    component: Login,
+  },
+  {
     path: '/home',
     component: Main,
     children: [
       {
-        path: '/',
+        path: 'home',
         name: 'home',
         component: ()=>import('@/views/main/home.vue')
       },
       {
-        path: '/mall',
-        name: 'mall',
-        component: ()=>import('@/views/main/mall.vue')
+        path: 'goods',
+        name: 'goods',
+        component: ()=>import('@/views/main/Goods.vue')
       },
       {
-        path: "/user",
-        name: "user",
+        path: "users",
+        name: "users",
         component: ()=>import('@/views/main/user.vue')
       },
     ]
-  },{
-    path: '/login',
-    name: 'login',
-    component: Login,
-  }
+  },
 ]
 
 const router = new VueRouter({
