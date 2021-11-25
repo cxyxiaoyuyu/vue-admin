@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
+import Login from '../views/Login.vue'
 
 // 解决路由重复
 const originPush = VueRouter.prototype.push
@@ -30,6 +31,10 @@ const routes = [
         component: ()=>import('@/views/main/user.vue')
       },
     ]
+  },{
+    path: '/login',
+    name: 'login',
+    component: Login,
   }
 ]
 
