@@ -1,12 +1,12 @@
 <template>
-  <div class="home">
+  <div class="main">
     <el-container>
       <el-aside width="auto">
         <v-aside></v-aside>
       </el-aside>
       <el-container>
         <el-header><v-header></v-header></el-header>
-
+        <v-tag></v-tag>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -19,11 +19,13 @@
 // @ is an alias to /src
 import VAside from '@/components/Aside'
 import VHeader from '@/components/Header'
+import VTag from '@/components/Tag'
 export default {
-  name: "Home",
+  name: "Main",
   components: {
     VAside,
-    VHeader
+    VHeader,
+    VTag
   },
 };
 </script>

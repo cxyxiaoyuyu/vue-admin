@@ -1,7 +1,5 @@
 import Mock from 'mockjs'
 
-console.log('mock  data  ')
-
 Mock.mock('/api/home/getData',
   [
     {

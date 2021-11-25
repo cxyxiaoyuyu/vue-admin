@@ -1,6 +1,6 @@
 <template>
-  <el-row class="main" :gutter="20">
-    <el-col :span="8" style="margin-top: 20px">
+  <el-row class="home" :gutter="20">
+    <el-col :span="8">
       <el-card shadow="hover">
         <div class="user">
           <img class="img" src="../../assets/images/user.png" alt="" />

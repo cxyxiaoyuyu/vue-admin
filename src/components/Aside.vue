@@ -58,7 +58,7 @@ export default {
       menu: [
         {
           path: "/",
-          name: "main",
+          name: "home",
           label: "首页",
           icon: "s-home",
           url: "Home/Home",
@@ -103,6 +103,7 @@ export default {
   methods: {
     clickMenu(item){
       this.$router.push({name: item.name})
+      this.$store.commit('selectMenu',item)
     }
   },
   computed: {

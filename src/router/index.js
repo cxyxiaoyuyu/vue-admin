@@ -1,26 +1,40 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Main from '../views/Main.vue'
 
+// 解决路由重复
+const originPush = VueRouter.prototype.push
+VueRouter.prototype.push = function(location){
+  return originPush.call(this,location).catch(err => err)
+}
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    component: Main,
     children: [
       {
         path: '/',
-        name: 'main',
-        component: ()=>import('@/views/home/main.vue')
-      }
+        name: 'home',
+        component: ()=>import('@/views/main/home.vue')
+      },
+      {
+        path: '/mall',
+        name: 'mall',
+        component: ()=>import('@/views/main/mall.vue')
+      },
+      {
+        path: "/user",
+        name: "user",
+        component: ()=>import('@/views/main/user.vue')
+      },
     ]
   }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })

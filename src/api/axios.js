@@ -23,19 +23,15 @@ class HttpRequest{
   interceptors(instance){
     // 请求拦截器 
     instance.interceptors.request.use(function(config){
-      console.log(config,'config')
       return config
     },function(error){
-      console.log(error,'error')
       return Promise.reject(error)
     })
 
     // 响应拦截器
     instance.interceptors.response.use(function(response){
-      console.log(response,'response')
       return response
     },function(error){
-      console.log(error,'error')
       return Promise.reject(error)
     })
   }
@@ -46,7 +42,6 @@ class HttpRequest{
     
     const instance = axios.create()
     options = {...(this.getInsideConfig()),...options}
-    console.log('拦截。。',options)
     this.interceptors(instance)
     return instance(options)
   }
