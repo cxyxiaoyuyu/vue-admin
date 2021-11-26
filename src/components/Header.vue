@@ -9,9 +9,12 @@
       ></el-button>
 
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item v-if="current" :to="{ path: current.path }">{{
-          current.label
+        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item v-if="current" :to="{path: '/home/'+current.path}">{{
+          $store.state.tab.currentParentMenu
+        }}</el-breadcrumb-item>
+        <el-breadcrumb-item v-if="current" :to="{path: '/home/'+current.path}">{{
+          current.authName
         }}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
@@ -42,13 +45,13 @@ export default {
       this.$store.commit("toggleMenu");
     },
     handleCommand(command) {
-      this[command]()
+      this[command]();
     },
-    logout(){
-      this.$router.push({name: 'login'})
-      sessionStorage.clear()
-      this.$message('已退出登录')
-    }
+    logout() {
+      this.$router.push({ name: "login" });
+      sessionStorage.clear();
+      this.$message("已退出登录");
+    },
   },
   computed: {
     ...mapState({
@@ -82,10 +85,15 @@ export default {
 }
 .el-breadcrumb__item {
   /deep/ .el-breadcrumb__inner {
-    color: #666;
-    &.is-link {
-      color: #fff;
-    }
+    color: #fff;
+    cursor: pointer !important;
+    
+  }
+  &:last-child {
+     /deep/ .el-breadcrumb__inner {
+        color: #fff;
+        cursor: pointer !important;
+      } 
   }
 }
 </style>

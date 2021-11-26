@@ -67,6 +67,10 @@ Mock.mock('/api/menus', {
   "meta": { "msg": "获取菜单列表成功", "status": 200 }
 })
 
+Mock.mock('/api/users',
+{"data":{"total":3,"pagenum":1,"users":[{"id":500,"role_name":"超级管理员","username":"admin","create_time":1486720211,"mobile":"13888888888","email":"adsfad@qq.com","mg_state":true},{"id":525,"role_name":"超级管理员","username":"admin235","create_time":1637907797,"mobile":"15345678901","email":"123@qq.com","mg_state":false},{"id":526,"role_name":"超级管理员","username":"admin1234","create_time":1637909969,"mobile":"15234567891","email":"12324@qwqew.comn","mg_state":false}]},"meta":{"msg":"获取管理员列表成功","status":200}}
+)
+
 Mock.mock('/api/home/getData', {
   data: [
     {

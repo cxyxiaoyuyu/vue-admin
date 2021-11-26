@@ -6,6 +6,7 @@
       </el-aside>
       <el-container>
         <el-header><v-header></v-header></el-header>
+       
         <v-tag></v-tag>
         <el-main>
           <router-view></router-view>
@@ -39,6 +40,6 @@ export default {
 }
 .el-main {
   padding-top: 0;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 132px);
 }
 </style>

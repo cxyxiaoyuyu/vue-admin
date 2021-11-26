@@ -1,6 +1,7 @@
 export default {
   state: {
     isCollapse: false,
+    currentParentMenu: null,
     currentMenu: null,
     tabsList: [
       {
@@ -14,19 +15,19 @@ export default {
     toggleMenu(state) {
       state.isCollapse = !state.isCollapse
     },
-    selectMenu(state, menu) {
+    selectMenu(state, {parentMenuName,menu}) {
       menu.name === 'home' ? (state.currentMenu = null) : state.currentMenu = menu
 
       if (menu.name === 'home') {
         state.currentMenu = null
       } else {
+        state.currentParentMenu = parentMenuName
         state.currentMenu = menu
 
         // 新增tabList
         if (state.tabsList.findIndex(item => item.id === menu.id) === -1) {
           state.tabsList.push(menu)
         }
-
       }
     },
     closeTag(state, menu) {

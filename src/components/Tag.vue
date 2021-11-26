@@ -16,7 +16,7 @@ import { mapState,mapMutations } from "vuex";
 export default {
   methods: {
     changeMenu(menu){
-      this.$router.push({name: menu.name})
+      this.$router.push({name: menu.path})
     },
     closeMenu(tag,index){
       const length = this.tabsList.length - 1
