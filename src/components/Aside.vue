@@ -73,7 +73,6 @@ export default {
   },
   methods: {
     clickMenu(item, subItem) {
-      console.log(item, subItem, "xxx");
       this.$router.push({ name: subItem.path });
       this.selectMenu({ parentMenuName: item.authName, menu: subItem });
     },

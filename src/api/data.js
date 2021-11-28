@@ -56,9 +56,69 @@ export const deleteUser = (id) => {
   })
 }
 
-export const getHomeTableData = () => {
+export const getRightsList = () => {
   return axios.request({
-    url: '/home/getData',
+    url: 'rights/list',
     method: 'get'
   })
 }
+
+export const getRoleList = () => {
+  return axios.request({
+    url: 'roles',
+    method: 'get'    
+  })
+}
+
+export function addRole(roleInfo){
+  return axios.request({
+    url: 'roles',
+    method: 'post',
+    data: roleInfo
+  })
+}
+
+export const editRole = (roleInfo) => {
+  return axios.request({
+    url: `roles/${roleInfo.id}`,
+    method: 'put',
+    data: {
+      roleName: roleInfo.roleName,
+      roleDesc: roleInfo.roleDesc
+    }
+  })
+}
+
+export function deleteRole(id){
+  return axios.request({
+    url: `roles/${id}`,
+    method: 'delete'
+  })
+}
+
+export function deleteRoleRight(roleId,rightId){
+  return axios.request({
+    url: `roles/${roleId}/rights/${rightId}`,
+    method: 'delete'
+  })
+}
+// 获取所有权限
+export function getRightTree(){
+  return axios.request({
+    url: 'rights/tree',
+    method: 'get'
+  })
+}
+
+// 分配权限
+export function allotRights(roleId,roleIdsStr){
+  return axios.request({
+    url: `roles/${roleId}/rights`,
+    method: 'post',
+    data: {
+      rids: roleIdsStr
+    }
+  })
+}
+
+

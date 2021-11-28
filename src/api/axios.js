@@ -2,6 +2,7 @@
 
 import axios from 'axios'
 import config from '../config/index'
+import Vue from 'vue'
 
 // 设置配置
 const baseUrl = process.env.NODE_ENV === 'development' 
@@ -30,8 +31,15 @@ class HttpRequest{
     })
 
     // 响应拦截器
-    instance.interceptors.response.use(function(response){
-      return response.data
+    instance.interceptors.response.use(function(res){
+      if(res.data.meta.status !== 200 && res.data.meta.status !== 201){
+        Vue.prototype.$message({
+          message: res.data.meta.msg,
+          type: 'warning'
+        }) 
+        return
+      }
+      return res.data
     },function(error){
       return Promise.reject(error)
     })

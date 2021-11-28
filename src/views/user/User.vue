@@ -310,15 +310,11 @@ export default {
       })
         .then(() => {
           deleteUser(id).then((res) => {
-            if (res.meta.status !== 200) {
-              this.$message.error('删除用户失败')
-            } else {
-              this.$message({
-                type: "success",
-                message: "删除用户成功!",
-              });
-              this.getUserList()
-            }
+            this.$message({
+              type: "success",
+              message: "删除用户成功!",
+            });
+            this.getUserList();
           });
         })
         .catch(() => {

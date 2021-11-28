@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import { getHomeTableData } from '../../api/data'
 export default {
   data() {
     return { 
@@ -48,9 +47,7 @@ export default {
   },
   methods: {
     getTableData(){
-      getHomeTableData().then(res => {
-        this.tableData = res.data
-      })
+      
     }
   },
   mounted(){

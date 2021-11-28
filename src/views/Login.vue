@@ -56,7 +56,6 @@ export default {
         if(!isValid) return
         
         login(this.loginForm).then(res => {
-          console.log(res,'resssss')
           if(res.data){
             this.$message.success('登录成功')
             

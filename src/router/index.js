@@ -2,12 +2,16 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
 import Login from '../views/Login.vue'
-import Home from '../views/Main.vue'
+
+import Home from '../views/home/Home.vue'
+import User from '../views/user/User.vue'
+import Rights from '../views/rights/Rights.vue'
+import Role from '../views/rights/Role.vue'
 
 // 解决路由重复
 const originPush = VueRouter.prototype.push
-VueRouter.prototype.push = function(location){
-  return originPush.call(this,location).catch(err => err)
+VueRouter.prototype.push = function (location) {
+  return originPush.call(this, location).catch(err => err)
 }
 Vue.use(VueRouter)
 
@@ -28,17 +32,22 @@ const routes = [
       {
         path: '',
         name: 'home',
-        component: ()=>import('@/views/main/home.vue')
-      },
-      {
-        path: 'goods',
-        name: 'goods',
-        component: ()=>import('@/views/main/Goods.vue')
+        component: Home
       },
       {
         path: "users",
         name: "users",
-        component: ()=>import('@/views/main/user.vue')
+        component: User
+      },
+      {
+        path: 'rights',
+        name: 'rights',
+        component: Rights      
+      },
+      {
+        path: 'roles',
+        name: 'roles',
+        component: Role      
       },
     ]
   },
@@ -51,13 +60,13 @@ const router = new VueRouter({
 })
 
 // 路由守卫
-router.beforeEach((to,form,next)=>{
-  if(to.path === '/login'){
+router.beforeEach((to, form, next) => {
+  if (to.path === '/login') {
     next()
   }
-  if(sessionStorage.getItem('token')){
+  if (sessionStorage.getItem('token')) {
     next()
-  }else{
+  } else {
     next('/login')
   }
 })
