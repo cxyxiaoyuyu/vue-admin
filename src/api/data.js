@@ -56,6 +56,17 @@ export const deleteUser = (id) => {
   })
 }
 
+// 分配角色
+export function allotRole(userId,selectedRoleId){
+  return axios.request({
+    url: `users/${userId}/role`,
+    method: 'put',
+    data: {
+      rid: selectedRoleId
+    }
+  })
+}
+
 export const getRightsList = () => {
   return axios.request({
     url: 'rights/list',
@@ -120,5 +131,6 @@ export function allotRights(roleId,roleIdsStr){
     }
   })
 }
+
 
 

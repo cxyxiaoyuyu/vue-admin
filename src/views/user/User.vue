@@ -68,6 +68,7 @@
               type="warning"
               icon="el-icon-setting"
               size="mini"
+              @click="setRole(row)"
             ></el-button>
           </el-tooltip>
         </template>
@@ -147,6 +148,36 @@
         <el-button type="primary" @click="editUser">确 定</el-button>
       </span>
     </el-dialog>
+
+    <!-- 分配角色 -->
+    <el-dialog
+      title="分配角色"
+      :visible.sync="setRoleDialogVisible"
+      width="50%"
+      @close="setRoleDialogClose"
+    >
+      <div class="setRole">
+        <p class="username">当前的用户: <span>{{ currentUserInfo.username }}</span></p>
+        <p class="rolename">当前的角色: <span>{{ currentUserInfo.role_name }}</span></p>
+        <p>
+          分配新角色: 
+          <el-select v-model="selectedRoleId" placeholder="请选择角色">
+            <el-option
+              v-for="role in roleList"
+              :key="role.id"
+              :label="role.roleName"
+              :value="role.id"
+            >
+            </el-option>
+          </el-select>
+        </p>
+      </div>
+
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="setRoleDialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="saveRoleInfo">确 定</el-button>
+      </span>
+    </el-dialog>
   </el-card>
 </template>
 
@@ -157,6 +188,8 @@ import {
   addUser,
   editUser,
   deleteUser,
+  getRoleList,
+  allotRole
 } from "@/api/data.js";
 export default {
   data() {
@@ -187,6 +220,11 @@ export default {
       total: 0,
       addDialogVisible: false,
       editDialogVisible: false,
+      setRoleDialogVisible: false,
+      // 当前的用户信息
+      currentUserInfo: {},
+      roleList: [],
+      selectedRoleId: "",
 
       addForm: {
         username: "",
@@ -324,6 +362,36 @@ export default {
           });
         });
     },
+    // 分配角色
+    setRole(userInfo) {
+      this.currentUserInfo = userInfo;
+      console.log(userInfo);
+      // 获取所有角色列表
+      getRoleList().then((res) => {
+        if (res) {
+          this.roleList = res.data;
+          console.log(this.roleList);
+        }
+      });
+
+      this.setRoleDialogVisible = true;
+    },
+    saveRoleInfo(){
+      // 没有选新角色
+      if(!this.selectedRoleId){
+        return 
+      }
+      allotRole(this.currentUserInfo.id,this.selectedRoleId).then(res => {
+        if(res){
+          this.$message.success('更新角色成功')
+          this.getUserList()
+          this.setRoleDialogVisible = false
+        }
+      })
+    },
+    setRoleDialogClose() {
+      this.selectedRoleId = ''
+    },
   },
 };
 </script>
@@ -332,5 +400,18 @@ export default {
 .el-table {
   margin-top: 15px;
   font-size: 13px;
+}
+.setRole {
+  p {
+    font-size: 14px;
+    margin-top: 15px;
+    span {
+      font-weight: bold;
+      padding-left: 20px;
+    }
+    .el-select {
+      margin-left: 15px;
+    }
+  }
 }
 </style>
