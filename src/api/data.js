@@ -132,5 +132,46 @@ export function allotRights(roleId,roleIdsStr){
   })
 }
 
+// 获取商品分类
+export function getCateList(queryInfo){
+  return axios.request({
+    url: 'categories',
+    method: 'get',
+    params: queryInfo
+  })
+}
+
+export function getParentCateList(){
+  return axios.request({
+    url: 'categories',
+    method: 'get',
+    params: { type: 2}
+  })
+}
+
+export function addCate(cateInfo){
+  return axios.request({
+    url: 'categories',
+    method: 'post',
+    data: cateInfo
+  })
+}
+
+export function editCate(cat_id,cat_name){
+  return axios.request({
+    url: `categories/${cat_id}`,
+    method: 'put',
+    data: {
+      cat_name
+    }
+  })
+}
+
+export function deleteCate(cate_id){
+  return axios.request({
+    url: `categories/${cate_id}`,
+    method: 'delete'
+  })
+}
 
 

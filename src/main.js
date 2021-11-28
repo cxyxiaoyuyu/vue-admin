@@ -14,10 +14,13 @@ if(process.env.NODE_ENV === 'development'){
 import http from 'axios'
 Vue.prototype.$http = http
 
-// 全局引入
+// 全局引入elementui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI)
+
+import TreeTable from 'vue-table-with-tree-grid'
+Vue.component('tree-table',TreeTable)
 
 
 
