@@ -24,7 +24,7 @@
       </el-row>
       <!-- table区域 -->
       <el-row>
-        <el-table :data="goodsList" border style="width: 100%">
+        <el-table :data="goodsList" border style="width: 100%" v-loading="isLoading">
           <el-table-column type="index" label="#"></el-table-column>
           <el-table-column prop="goods_name" label="商品名称"></el-table-column>
           <el-table-column
@@ -93,6 +93,7 @@ export default {
       goodsList: [],
       // 总数据条数
       total: 0,
+      isLoading: true
     };
   },
   created() {
@@ -104,6 +105,7 @@ export default {
       getGoodsList(this.queryInfo).then((res) => {
         if (res) {
           // this.$message.success("获取商品列表成功!");
+          this.isLoading = false
           this.goodsList = res.data.goods;
           this.total = res.data.total;
           console.log(res.data);
