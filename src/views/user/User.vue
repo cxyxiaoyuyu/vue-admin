@@ -316,7 +316,7 @@ export default {
     // 修改用户信息
     showEditDialog(userInfo) {
       this.editDialogVisible = true;
-      this.editForm = Object.assign(userInfo);
+      this.editForm = JSON.parse(JSON.stringify(userInfo));
     },
     editDialogClose() {
       this.$refs.editFormRef.resetFields();

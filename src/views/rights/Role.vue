@@ -254,7 +254,7 @@ export default {
     },
     // 得到修改用户的信息
     showEditDialog(roleInfo) {
-      this.editRolesForm = Object.assign(roleInfo);
+      this.editRolesForm = JSON.parse(JSON.stringify(roleInfo));
       this.editDialogVisible = true;
     },
     editRole() {

@@ -297,7 +297,7 @@ export default {
       this.addCateForm.cat_pid = 0;
     },
     showeditCateDialog(cateInfo) {
-      this.editCateForm = Object.assign(cateInfo);
+      this.editCateForm = JSON.parse(JSON.stringify(cateInfo));
       this.editCateDialogVisbel = true;
     },
     // 编辑分类信息

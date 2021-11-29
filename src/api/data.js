@@ -174,4 +174,53 @@ export function deleteCate(cate_id){
   })
 }
 
+export function getParams(cateId,activeName){
+  return axios.request({
+    url: `categories/${cateId}/attributes`,
+    method: 'get',
+    params: {
+      sel: activeName
+    }
+  })
+}
 
+export function addParam(cateId,attr_sel,attr_name){
+  return axios.request({
+    url:`categories/${cateId}/attributes`,
+    method: 'post',
+    data: {
+      attr_sel,
+      attr_name
+    }
+  })
+}
+
+export function editParam(cateId,attr_id,attr_name,attr_sel){
+  return axios.request({
+    url: `categories/${cateId}/attributes/${attr_id}`,
+    method: 'put',
+    data: {
+      attr_name,
+      attr_sel
+    }
+  })
+}
+
+export function deleteParam(cateId,paramId){
+  return axios.request({
+    url: `categories/${cateId}/attributes/${paramId}`,
+    method: 'delete',
+  })
+}
+
+export function saveAttrVals(cateId,attr,attr_sel){
+  return axios.request({
+    url: `categories/${cateId}/attributes/${attr.attr_id}`,
+    method: 'put',
+    data: {
+      attr_sel,
+      attr_name: attr.attr_name,
+      attr_vals: attr.attr_vals.join(' ')
+    }
+  })
+}

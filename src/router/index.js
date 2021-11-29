@@ -8,6 +8,7 @@ import User from '../views/user/User.vue'
 import Rights from '../views/rights/Rights.vue'
 import Role from '../views/rights/Role.vue'
 import Categories from '../views/mall/Categories.vue'
+import Params from '../views/mall/Params.vue'
 
 // 解决路由重复
 const originPush = VueRouter.prototype.push
@@ -54,6 +55,11 @@ const routes = [
         path: 'categories',
         name: 'categories',
         component: Categories
+      },
+      {
+        path: 'params',
+        name: 'params',
+        component: Params 
       }
     ]
   },
