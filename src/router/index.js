@@ -11,6 +11,7 @@ import Categories from '../views/mall/Categories.vue'
 import Params from '../views/mall/Params.vue'
 import GoodsList from '../views/mall/GoodsList.vue'
 import AddGoods from '../views/mall/AddGoods.vue'
+import Order from '../views/order/Order.vue'
 
 // 解决路由重复
 const originPush = VueRouter.prototype.push
@@ -72,6 +73,11 @@ const routes = [
         path: 'goods/add',
         name: 'add-goods',
         component: AddGoods
+      },
+      {
+        path: 'orders',
+        name: 'orders',
+        component: Order 
       }
     ]
   },

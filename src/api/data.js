@@ -247,3 +247,18 @@ export function addGoods(data){
     data
   })
 }
+
+export function getOrderList(queryInfo){
+  return axios.request({
+    url: 'orders',
+    method: 'get',
+    params: queryInfo
+  })
+}
+
+export function getProgress(){
+  return axios.request({
+    url: '/kuaidi/1106975712662',
+    method: 'get',
+  })
+}
