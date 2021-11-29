@@ -224,3 +224,26 @@ export function saveAttrVals(cateId,attr,attr_sel){
     }
   })
 }
+
+export function getGoodsList(queryInfo){
+  return axios.request({
+    url: 'goods',
+    method: 'get',
+    params: queryInfo
+  })
+}
+
+export function deleteGoods(id){
+  return axios.request({
+    url: `goods/${id}`,
+    method: 'delete'
+  })
+}
+
+export function addGoods(data){
+  return axios.request({
+    url: "goods",
+    method: 'post',
+    data
+  })
+}

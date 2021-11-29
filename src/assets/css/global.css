@@ -7,3 +7,16 @@ html,body,#app {
   margin-top: 15px;
   text-align: right;
 }
+
+.el-steps {
+  margin-top: 15px;
+}
+.el-step__title {
+  font-size: 14px !important;
+}
+.el-upload-list--picture .el-upload-list__item {
+  width: 500px;
+}
+.ql-editor {
+  min-height: 300px;
+}

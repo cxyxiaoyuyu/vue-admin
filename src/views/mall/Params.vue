@@ -128,7 +128,7 @@
                   v-show="!row.inputVisible"
                   class="button-new-tag"
                   size="small"
-                  @click="showInput(scope.row)"
+                  @click="showInput(row)"
                   >+ New Tag</el-button
                 >
               </template>
