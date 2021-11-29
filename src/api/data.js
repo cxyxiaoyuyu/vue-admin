@@ -262,3 +262,10 @@ export function getProgress(){
     method: 'get',
   })
 }
+
+export function getReport(){
+  return axios.request({
+    url: "reports/type/1",
+    method: 'get'
+  })
+}

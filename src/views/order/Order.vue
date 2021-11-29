@@ -146,6 +146,7 @@
 </template>
 
 <script>
+import { cityData } from './cityData.js'
 import { getOrderList, getProgress } from "@/api/data.js";
 export default {
   data() {

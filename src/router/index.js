@@ -12,6 +12,7 @@ import Params from '../views/mall/Params.vue'
 import GoodsList from '../views/mall/GoodsList.vue'
 import AddGoods from '../views/mall/AddGoods.vue'
 import Order from '../views/order/Order.vue'
+import Report from '../views/report/Report.vue'
 
 // 解决路由重复
 const originPush = VueRouter.prototype.push
@@ -78,6 +79,11 @@ const routes = [
         path: 'orders',
         name: 'orders',
         component: Order 
+      },
+      {
+        path: 'reports',
+        name: 'reports',
+        component: Report
       }
     ]
   },
