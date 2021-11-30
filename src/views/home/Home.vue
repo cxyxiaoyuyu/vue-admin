@@ -15,25 +15,7 @@
           <p>上次登录地点: <span>杭州</span></p>
         </div>
       </el-card>
-
-      <el-card class="table">
-        <el-table :data="tableData" style="width: 100%">
-          <el-table-column prop="date" label="日期" width="120">
-          </el-table-column>
-          <el-table-column prop="name" label="姓名" width="80">
-          </el-table-column>
-          <el-table-column prop="address" label="地址" width="220px">
-          </el-table-column>
-        </el-table>
-      </el-card>
     </el-col>
-
-    <el-col :span="16">
-      <el-card shadow="hover">
-
-      </el-card>
-    </el-col>
-
 
   </el-row>
 </template>

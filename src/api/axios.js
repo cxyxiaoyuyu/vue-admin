@@ -3,6 +3,8 @@
 import axios from 'axios'
 import config from '../config/index'
 import Vue from 'vue'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 // 设置配置
 const baseUrl = process.env.NODE_ENV === 'development' 
@@ -25,6 +27,7 @@ class HttpRequest{
   interceptors(instance){
     // 请求拦截器 
     instance.interceptors.request.use(function(config){
+      NProgress.start()
       return config
     },function(error){
       return Promise.reject(error)
@@ -32,6 +35,7 @@ class HttpRequest{
 
     // 响应拦截器
     instance.interceptors.response.use(function(res){
+      NProgress.done()
       if(res.data.meta.status !== 200 && res.data.meta.status !== 201){
         Vue.prototype.$message({
           message: res.data.meta.msg,
