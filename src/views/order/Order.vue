@@ -191,7 +191,6 @@ export default {
         // this.$message.success("获取订单列表成功!");
         this.orderList = res.data.goods;
         this.total = res.data.total;
-        console.log(res, this.orderList, this.total);
       });
     },
     handleSizeChange(newSize) {
