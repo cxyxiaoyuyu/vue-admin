@@ -1,18 +1,35 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '../views/Main.vue'
-import Login from '../views/Login.vue'
 
-import Home from '../views/home/Home.vue'
-import User from '../views/user/User.vue'
-import Rights from '../views/rights/Rights.vue'
-import Role from '../views/rights/Role.vue'
-import Categories from '../views/mall/Categories.vue'
-import Params from '../views/mall/Params.vue'
-import GoodsList from '../views/mall/GoodsList.vue'
-import AddGoods from '../views/mall/AddGoods.vue'
-import Order from '../views/order/Order.vue'
-import Report from '../views/report/Report.vue'
+const Login = () => import(/* webpackChunkName: "login_main_home" */ '../views/Login.vue')
+const Main = () => import(/* webpackChunkName: "login_main_home" */ '../views/Main.vue')
+const Home = () => import(/* webpackChunkName: "login_main_home" */ '../views/home/Home.vue')
+
+const User = () => import (/* webpackChunkName: "usr_rights_role" */ '../views/user/User.vue')
+const Rights = () => import (/* webpackChunkName: "usr_rights_role" */ '../views/rights/Rights.vue')
+const Role = () => import (/* webpackChunkName: "usr_rights_role" */ '../views/rights/Role.vue')
+
+const Categories = () => import (/* webpackChunkName: "cate_param" */ '../views/mall/Categories.vue')
+const Params = () => import (/* webpackChunkName: "cate_param" */ '../views/mall/Params.vue')
+
+const GoodsList = () => import (/* webpackChunkName: "goods_add" */ '../views/mall/GoodsList.vue')
+const AddGoods = () => import (/* webpackChunkName: "goods_add" */ '../views/mall/AddGoods.vue')
+
+const Order = () => import (/* webpackChunkName: "order_report" */ '../views/order/Order.vue')
+const Report = () => import (/* webpackChunkName: "order_report" */ '../views/report/Report.vue')
+
+// import Main from '../views/Main.vue'
+// import Login from '../views/Login.vue'
+// import Home from '../views/home/Home.vue'
+// import User from '../views/user/User.vue'
+// import Rights from '../views/rights/Rights.vue'
+// import Role from '../views/rights/Role.vue'
+// import Categories from '../views/mall/Categories.vue'
+// import Params from '../views/mall/Params.vue'
+// import GoodsList from '../views/mall/GoodsList.vue'
+// import AddGoods from '../views/mall/AddGoods.vue'
+// import Order from '../views/order/Order.vue'
+// import Report from '../views/report/Report.vue'
 
 // 解决路由重复
 const originPush = VueRouter.prototype.push
@@ -29,7 +46,8 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: Login,
+    // component: () => import(/* webpackChunkName: "login_main_home" */'../views/Login.vue'),
+    component: Login
   },
   {
     path: '/home',

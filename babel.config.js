@@ -18,5 +18,6 @@ module.exports = {
   // ]
   plugins: [
     ...prodPlugins,
+    '@babel/plugin-syntax-dynamic-import'
   ]
 }

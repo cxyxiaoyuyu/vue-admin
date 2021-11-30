@@ -3,6 +3,6 @@ export default {
   baseUrl: {
     // dev: '/api',
     dev: 'https://lianghj.top:8888/api/private/v1',
-    pro: '/'
+    pro: 'https://lianghj.top:8888/api/private/v1'
   }
 }

@@ -54,7 +54,7 @@ export default {
     login(){
       this.$refs.loginFormRef.validate(isValid => {
         if(!isValid) return
-        
+        console.log('loginiiiiii')
         login(this.loginForm).then(res => {
           if(res.data){
             this.$message.success('登录成功')

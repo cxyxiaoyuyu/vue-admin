@@ -27,6 +27,7 @@ class HttpRequest{
   interceptors(instance){
     // 请求拦截器 
     instance.interceptors.request.use(function(config){
+      console.log(config,'config')
       NProgress.start()
       return config
     },function(error){
@@ -55,6 +56,7 @@ class HttpRequest{
     
     const instance = axios.create()
     options = {...(this.getInsideConfig()),...options}
+    console.log(options,'optiosn')
     this.interceptors(instance)
     return instance(options)
   }
