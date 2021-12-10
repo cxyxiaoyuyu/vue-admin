@@ -31,7 +31,7 @@ export default {
       }
     },
     closeTag(state, menu) {
-      let index = state.tabsList.findIndex(item => item.name === menu.name)
+      let index = state.tabsList.findIndex(item => item.id === menu.id)
       state.tabsList.splice(index, 1)
     }
   }

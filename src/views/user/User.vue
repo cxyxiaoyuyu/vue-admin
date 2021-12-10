@@ -213,7 +213,7 @@ export default {
       queryInfo: {
         query: "",
         pagenum: 1,
-        pagesize: 10,
+        pagesize: 5,
       },
       userList: [],
       labelList: [],

@@ -3,7 +3,7 @@
     <el-tag
       v-for="(tag,index) in tabsList"
       :key="tag.name"
-      :closable="tag.name !== 'home'"
+      :closable="tag.path !== 'home'"
       :effect="$route.name === tag.path ? 'dark' : 'plain'"
       @click="changeMenu(tag)"
       @close="closeMenu(tag,index)"
@@ -19,6 +19,7 @@ export default {
       this.$router.push({name: menu.path})
     },
     closeMenu(tag,index){
+      console.log(this.tabsList,'xx')
       const length = this.tabsList.length - 1
 
       // 删除vuex中的tabsList
@@ -27,7 +28,7 @@ export default {
 
       // 判断是否是最后一个
       // 第一种情况 不是当前路由
-      if(tag.name !== this.$route.name){
+      if(tag.path !== this.$route.name){
         return 
       }
       
@@ -35,7 +36,7 @@ export default {
       if(index === length){
         // 向左跳转
         this.$router.push({
-          name: this.tabsList[index - 1].name
+          name: this.tabsList[index - 1].path
         })
       }else{
         // 向右跳转

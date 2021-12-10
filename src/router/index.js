@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-const Login = () => import(/* webpackChunkName: "login_main_home" */ '../views/Login.vue')
+// const Login = () => import(/* webpackChunkName: "login_main_home" */ '../views/Login.vue')
 const Main = () => import(/* webpackChunkName: "login_main_home" */ '../views/Main.vue')
 const Home = () => import(/* webpackChunkName: "login_main_home" */ '../views/home/Home.vue')
 
@@ -19,7 +19,7 @@ const Order = () => import (/* webpackChunkName: "order_report" */ '../views/ord
 const Report = () => import (/* webpackChunkName: "order_report" */ '../views/report/Report.vue')
 
 // import Main from '../views/Main.vue'
-// import Login from '../views/Login.vue'
+import Login from '../views/Login.vue'
 // import Home from '../views/home/Home.vue'
 // import User from '../views/user/User.vue'
 // import Rights from '../views/rights/Rights.vue'
