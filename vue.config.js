@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
   lintOnSave: false,
-  outputDir: path.resolve(__dirname, './build'),
+  outputDir: path.resolve(__dirname, './dist'),
   publicPath: '/',
   configureWebpack: { 
     devtool: 'source-map',
