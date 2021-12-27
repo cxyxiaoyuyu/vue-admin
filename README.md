@@ -1,24 +1,14 @@
-# vue-admin
+### 使用vue+element-ui搭建的管理平台 
 
-## Project setup
-```
-npm install
-```
+### 技术栈
+* vue 
+* vue-cli
+* vuex
+* vue-router
+* element-ui
+* axios
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### 项目截图
+![用户管理](./screen/user.png)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![权限管理](./screen/role.png)

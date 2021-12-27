@@ -1,6 +1,6 @@
 html,body,#app {
   height: 100vh;
-  min-width: 1440px;
+  min-width: 1000px;
 }
 
 .el-pagination {

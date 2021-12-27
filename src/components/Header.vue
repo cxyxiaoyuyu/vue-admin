@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     toggleMenu() {
+      console.log(this.$store)
       this.$store.commit("toggleMenu");
     },
     handleCommand(command) {
