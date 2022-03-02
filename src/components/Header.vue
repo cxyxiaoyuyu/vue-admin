@@ -85,13 +85,12 @@ export default {
   }
 }
 .el-breadcrumb__item {
-  /deep/ .el-breadcrumb__inner {
+  ::v-deep .el-breadcrumb__inner {
     color: #fff;
     cursor: pointer !important;
-    
   }
   &:last-child {
-     /deep/ .el-breadcrumb__inner {
+     ::v-deep .el-breadcrumb__inner {
         color: #fff;
         cursor: pointer !important;
       } 
